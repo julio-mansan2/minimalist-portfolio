@@ -1,0 +1,202 @@
+@media (min-width: 500px) and (max-width: 1200px) {
+    .home-hero h1 {
+        font-size: 1.5rem;
+    }
+    
+    #about-me {
+        align-items: flex-start;
+        gap: 3.125rem;
+    }
+
+    .contact h2 {
+        font-size: 1.5rem;
+    }
+
+    .portfolio-page article hr {
+        margin-bottom: 1.875rem;
+    }
+
+    .portfolio-page article p {
+        line-height: 1.5625rem;
+    }
+
+    .portfolio-page article:not(.contact) {
+        margin: 0 5%;
+        display: flex;
+        gap: 3.125rem;
+    }
+
+    .page > article:first-of-type {
+        gap: 4.375rem;
+        margin: 3.125rem 0 70px 0;
+        flex-direction: column;
+    }
+
+    .page img:not(.buttons img) {
+        width: 100%;
+    }
+
+    .page {
+        padding: 0 5%;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .header {
+        position: relative;
+        padding: 5%;
+    }
+
+    .contact {
+        flex-direction: column;
+        padding: 5%;
+        align-items: center;
+        text-align: center;
+        gap: 1.875rem;
+    }
+
+    .contact h2 {
+        width: 100%;
+    }
+    
+    #menu__toggle {
+        opacity: 0;
+    }
+
+    #menu__toggle:checked+.menu__btn>span {
+        transform: rotate(45deg);
+    }
+
+    #menu__toggle:checked+.menu__btn>span::before {
+        top: 0;
+        transform: rotate(0deg);
+    }
+
+    #menu__toggle:checked+.menu__btn>span::after {
+        top: 0;
+        transform: rotate(90deg);
+    }
+
+    .menu__btn {
+        top: 1.5rem;
+        right: 3%;
+        position: absolute;
+        width: 1.6rem;
+        height: 1.6rem;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    .menu__btn>span,
+    .menu__btn>span::before,
+    .menu__btn>span::after {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: var(--grayishDarkBlue);
+        transition-duration: .25s;
+    }
+
+    .menu__btn>span::before {
+        content: '';
+        top: -8px;
+    }
+
+    .menu__btn>span::after {
+        content: '';
+        top: 8px;
+    }
+
+    .header ul {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        gap: 1.25rem;
+        height: 50%;
+        left: -100%;
+        padding: 7%;
+        justify-content: center;
+        background-color: #000;
+        transition-duration: .25s;
+    }
+
+    .header label {
+        color: var(--lightGray);
+    }
+
+    .aparecer {
+        left: 0 !important;
+    }
+
+    .ocultar {
+        left: -100%;
+    }
+
+    .home-hero {
+        padding: 5%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .home-hero div {
+        position: relative;
+    }
+
+    #about-me {
+        flex-direction: column;
+        gap: 1.875rem;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 1.875rem;
+    }
+
+    .footer-intro ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        text-align: center;
+    }
+
+    .footer-intro {
+        flex-direction: column;
+    }
+
+    .portfolio-page article:not(.contact) {
+        margin: 0 5%;
+        display: flex;
+        gap: 3.125rem;
+        flex-direction: column;
+    }
+
+    .portfolio-page article hr {
+        margin-bottom: 1.25rem;
+    }
+
+    .page > article:first-of-type {
+        gap: 4.375rem;
+        margin: 3.125rem 0 4.375rem 0;
+        flex-direction: column;
+    }
+
+    .page img:not(.buttons img) {
+        width: 100%;
+    }
+
+    .page {
+        padding: 5%;
+    }
+
+    .contact-page {
+        padding: 5%;
+    }
+
+    .contact-intro, 
+    .form-div {
+        flex-direction: column;
+        gap: 1.875rem;
+    }
+}

@@ -1,0 +1,433 @@
+@import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:wght@400;700&family=Public+Sans:wght@100;400;600&display=swap');
+
+.homepage,
+.portfolio-page,
+.manage-page,
+.bookmark-page,
+.insure-page,
+.fylo-page,
+.contact-page {
+    display: none;
+    position: absolute;
+    z-index: 0;
+    opacity: 0;
+    top: -100%;
+}
+
+.portfolio-page {
+    top: -1000vh;
+}
+
+.selecionado {
+    position: relative;
+    display: block;
+    z-index: 1;
+    opacity: 1;
+    top: 0;
+}
+
+body {
+    display: grid;
+    grid-template-areas:
+    'header'
+    'main'
+    'footer';
+}
+
+.header {
+    grid-area: header;
+    padding: 5% 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header .menu__box {
+    display: flex;
+    align-items: center;
+    gap: 1.875rem;
+}
+
+.header .menu__box label,
+.footer-intro label {
+    font-family: 'Public Sans', sans-serif;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.header label:hover,
+.footer label:hover {
+    color: var(--slightlyDesaturatedCyan);
+    cursor: pointer;
+}
+
+.main {
+    grid-area: main;
+    position: relative;
+}
+
+.home-hero {
+    padding: 0 10%;
+    position: relative;
+}
+
+.home-hero img {
+    width: 100%;
+}
+
+.home-hero > div {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    padding: 1.25rem;
+    background: var(--veryLightGray);
+}
+
+.home-hero h1 {
+    font-family: 'Ibarra Real Nova', sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: var(--grayishDarkBlue);
+    margin-bottom: 1.25rem;
+}
+
+.home-hero a {
+    display: flex; 
+    align-items: center;
+    justify-content: space-around;
+    width: 12.5rem;
+    background: var(--darkblue);
+    padding: 1.25rem 0;
+}
+
+.home-hero a div {
+    display: flex;
+    justify-content: center;
+}
+
+.home-hero a p {
+    color: var(--white);
+    text-transform: uppercase;
+    font-family: 'Public Sans', sans-serif;
+}
+
+#about-me {
+    padding: 10%;
+    display: flex;
+    gap: 9.375rem;
+}
+
+#about-me h2 {
+    font-family: 'Ibarra Real Nova', sans-serif;
+    color: var(--grayishDarkBlue);
+    font-size: 2rem;
+    margin-bottom: 1.25rem;
+}
+
+#about-me p {
+    color: var(--grayishDarkBlue);
+    font-family: 'Public Sans', sans-serif;
+    line-height: 1.875rem;
+    margin-bottom: 1.875rem;
+}
+
+.btn-portfolio,
+.btn-contact,
+.portfolio-page article button,
+.page a {
+    transition: 0.3s;
+    padding: 0.625rem 2.5rem;
+    border: 1px solid #000000;
+    font-family: 'Public Sans', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.btn-portfolio:hover,
+.btn-contact:hover,
+.portfolio-page article button:hover,
+.page a:hover {
+    background: #000000;
+    color: var(--lightGray);
+    cursor: pointer;
+}
+
+.contact {
+    padding: 0% 10% 5% 10%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact h2 {
+    font: 700 2rem 'Ibarra Real Nova', sans-serif;
+    color: var(--grayishDarkBlue);
+    width: 30%;
+}
+
+hr {
+    height: 0px;
+    border: 1px solid var(--grayishDarkBluealpha10);
+}
+
+#about-me hr:first-child {
+    margin-bottom: 2.5rem;
+}
+
+.footer {
+    grid-area: footer;
+    display: flex;
+    justify-content: space-between;
+    padding: 3% 10%;
+    background: #000;
+    align-items: center;
+}
+
+.footer-intro {
+    display: flex;
+    gap: 1.875rem;
+    align-items: center;
+}
+
+.footer-intro ul {
+    display: flex;
+    gap: 1.875rem;
+}
+
+.footer-intro label {
+    color: var(--veryLightGray);
+}
+
+.logo-footer {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+}
+
+.social-medias {
+    display: flex;
+    gap: 0.625rem;
+}
+
+.social-medias a {
+    font-size: 1.5rem;
+    color: var(--lightGray);
+    transition: 0.3s;
+}
+
+.portfolio-page {
+    display: flex;
+    flex-direction: column;
+    gap: 3.125rem;
+}
+
+.portfolio-page article:not(.contact) {
+    margin: 0 10%;
+    display: flex;
+    gap: 7.5rem;
+}
+
+.portfolio-page article hr {
+    margin-bottom: 3.75rem;
+}
+
+.portfolio-page h1 {
+    font: 700 2rem 'Ibarra Real Nova', sans-serif;
+    color: var(--grayishDarkBlue);
+    margin-bottom: 1.875rem;
+}
+
+.portfolio-page article p {
+    font-family: 'Public Sans', sans-serif;
+    line-height: 1.875rem;
+    color: var(--grayishDarkBlue);
+    margin-bottom: 1.875rem;
+}
+
+.bookmark,
+.fylo {
+    flex-direction: row-reverse;
+}
+
+.social-medias a:hover {
+    color: var(--slightlyDesaturatedCyan);
+}
+
+.page {
+    padding: 0 10%;
+}
+
+.page .contact {
+    padding: 10% 0;
+}
+
+.page > article {
+    display: flex;
+}
+
+.page > article:first-of-type {
+    gap: 6.25rem;
+    margin: 6.25rem 0 4.375rem 0;
+}
+
+.page h1 {
+    font: 700 2rem 'Ibarra Real Nova', sans-serif;
+    color: var(--grayishDarkBlue);
+    margin: 1.875rem 0;
+}
+
+.page p,
+.page span {
+    font-family: 'Public Sans', sans-serif;
+    color: var(--grayishDarkBlue);
+}
+
+.page span {
+    display: block;
+    margin-top: 1.875rem;
+    font-size: 0.8125rem;
+}
+
+.page span:last-of-type {
+    margin-top: 0px;
+    margin-bottom: 1.875rem;
+}
+
+.page a {
+    margin-top: 1.25rem;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons article {
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons article hr {
+    height: 6.25rem;
+}
+
+.buttons button {
+    display: flex;
+    align-items: center;
+    gap: 1.875rem;
+}
+
+.buttons button div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+}
+
+.buttons button:first-child {
+    text-align: left;
+}
+
+.buttons button:last-child {
+    text-align: right;
+}
+
+.buttons h3,
+.contact-intro h2,
+.form-div h2 {
+    font-family: 'Ibarra Real Nova', sans-serif;
+    font-size: 2rem;
+    color: var(--grayishDarkBlue);
+}
+
+.buttons p,
+.contact-intro p {
+    font-family: 'Public Sans', sans-serif;
+    color: var(--grayishDarkBlue);
+}
+
+.contact-page {
+    padding: 0% 10% 5% 10%;
+}
+
+.contact-page hr:first-child {
+    margin-bottom: 3.125rem;
+}
+
+.contact-intro {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 3.125rem;
+}
+
+.contact-intro div:first-child {
+    flex: 30%;
+}
+
+.contact-intro div:last-child {
+    flex: 55%;
+}
+
+.contact-intro p {
+    margin-bottom: 1.875rem;
+}
+
+.contact-intro .social-medias a {
+    color: var(--grayishDarkBlue);
+}
+
+.contact-intro .social-medias a:hover {
+    color: var(--slightlyDesaturatedCyan);
+}
+
+.form-div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-div label {
+    font-family: 'Public Sans', sans-serif;
+    margin-bottom: 0.625rem;
+}
+
+.form-div form div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.25rem;
+}
+
+.form-div input,
+.form-div textarea {
+    background: var(--grayishDarkBluealpha10);
+    padding: 0.625rem;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    font-family: 'Public Sans', sans-serif;
+    margin-bottom: 5px;
+}
+
+.submit {
+    font: 700 1rem 'Public Sans', sans-serif;
+    text-transform: uppercase;
+    color: var(--lightGray);
+    background: var(--darkblue);
+    padding: 0.9375rem 1.25rem;
+    transition: 0.3s;
+}
+
+.submit:hover {
+    background: var(--slightlyDesaturatedCyan);
+    cursor: pointer;
+}
+
+.error {
+    color: rgb(102, 0, 0);
+    font-family: 'Public Sans', sans-serif;
+    font-size: 0.8rem;
+}
+
+.header input {
+    display: none;
+}
+
+textarea {
+    resize: none;
+}

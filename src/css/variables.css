@@ -1,0 +1,11 @@
+:root {
+  --white: #fff;
+  --veryLightGray: #FAFAFA;
+  --lightGray: #EAEAEB;
+  --navBarBackColor: #33323D;
+  --grayishDarkBlue: #33323D;
+  --grayishDarkBluealpha10: rgba(51, 50, 61, 0.1);
+  --grayishDarkBluealpha40: rgba(51, 50, 61, 0.4);
+  --darkblue: #203A4C;
+  --slightlyDesaturatedCyan: #5FB4A2;
+}
