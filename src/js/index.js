@@ -1,310 +1,114 @@
-const inputHome = document.querySelector('#home')
-const inputPortfolio = document.querySelector('#portfolio')
-const inputContact = document.querySelector('#contact')
-const labelHome = document.querySelectorAll('.home-label')
-const labelPortfolio = document.querySelectorAll('.portfolio-label')
-const labelContact = document.querySelectorAll('.contact-label')
+const pages = {
+  home: document.querySelector('.homepage'),
+  portfolio: document.querySelector('.portfolio-page'),
+  manage: document.querySelector('.manage-page'),
+  bookmark: document.querySelector('.bookmark-page'),
+  insure: document.querySelector('.insure-page'),
+  fylo: document.querySelector('.fylo-page'),
+  contact: document.querySelector('.contact-page'),
+};
 
-const homePage = document.querySelector('.homepage')
-const portfolioPage = document.querySelector('.portfolio-page')
-const managePage = document.querySelector('.manage-page')
-const bookmarkPage = document.querySelector('.bookmark-page')
-const insurePage = document.querySelector('.insure-page')
-const fyloPage = document.querySelector('.fylo-page')
-const contactPage = document.querySelector('.contact-page')
+const inputs = {
+  home: document.querySelector('#home'),
+  portfolio: document.querySelector('#portfolio'),
+  contact: document.querySelector('#contact'),
+};
 
-const btnLeft = document.querySelectorAll('.btn-left')
-const btnRight = document.querySelectorAll('.btn-right')
+const labels = {
+  home: document.querySelectorAll('.home-label'),
+  portfolio: document.querySelectorAll('.portfolio-label'),
+  contact: document.querySelectorAll('.contact-label'),
+};
 
-const footerHome = document.querySelector('#home-footer')
-const footerPortfolio = document.querySelector('#portfolio-footer')
-const footerContact = document.querySelector('#contact-footer')
+const footerButtons = {
+  home: document.querySelector('#home-footer'),
+  portfolio: document.querySelector('#portfolio-footer'),
+  contact: document.querySelector('#contact-footer'),
+};
 
-const btnPortfolio = document.querySelector('.btn-portfolio')
-const btnContact = document.querySelectorAll('.btn-contact')
+const buttons = {
+  portfolio: document.querySelector('.btn-portfolio'),
+  contact: document.querySelectorAll('.btn-contact'),
+  manage: document.querySelector('.btn-manage'),
+  bookmark: document.querySelector('.btn-bookmark'),
+  insure: document.querySelector('.btn-insure'),
+  fylo: document.querySelector('.btn-fylo'),
+};
 
+const btnLeft = document.querySelectorAll('.btn-left');
+const btnRight = document.querySelectorAll('.btn-right');
 
-const btnManage = document.querySelector('.btn-manage')
-const btnBookmark = document.querySelector('.btn-bookmark')
-const btnInsure = document.querySelector('.btn-insure')
-const btnFylo = document.querySelector('.btn-fylo')
-
-
-//Form Header
-
-inputHome.addEventListener('click', function () {
-    for (let i = 0; i < labelHome.length; i++) {
-        if (inputHome.checked) {
-            homePage.classList.add('selecionado')
-            portfolioPage.classList.remove('selecionado')
-            managePage.classList.remove('selecionado')
-            bookmarkPage.classList.remove('selecionado')
-            insurePage.classList.remove('selecionado')
-            fyloPage.classList.remove('selecionado')
-            contactPage.classList.remove('selecionado')
-            labelHome[i].style.color = 'var(--slightlyDesaturatedCyan)'
-            labelPortfolio[i].style.color = 'var(--grayishDarkBlue)'
-            labelContact[i].style.color = 'var(--grayishDarkBlue)'
-        } else if (inputHome.checked === false) {
-            homePage.classList.remove('selecionado')
-        }
+function updatePages(selectedPage, selectedLabelColor) {
+  for (const pageName in pages) {
+    if (pages.hasOwnProperty(pageName)) {
+      const page = pages[pageName];
+      page.classList.remove('selecionado');
     }
-})
+  }
+  selectedPage.classList.add('selecionado');
 
-inputContact.addEventListener('click', function () {
-    for (let i = 0; i < labelContact.length; i++) {
-        if (inputContact.checked) {
-            homePage.classList.remove('selecionado')
-            portfolioPage.classList.remove('selecionado')
-            managePage.classList.remove('selecionado')
-            bookmarkPage.classList.remove('selecionado')
-            insurePage.classList.remove('selecionado')
-            fyloPage.classList.remove('selecionado')
-            contactPage.classList.add('selecionado')
-            labelHome[i].style.color = 'var(--grayishDarkBlue)'
-            labelPortfolio[i].style.color = 'var(--grayishDarkBlue)'
-            labelContact[i].style.color = 'var(--slightlyDesaturatedCyan)'
-        } else if (inputContact.checked === false) {
-            contactPage.classList.remove('selecionado')
-        }
+  for (const labelName in labels) {
+    if (labels.hasOwnProperty(labelName)) {
+      const label = labels[labelName];
+      for (let i = 0; i < label.length; i++) {
+        label[i].style.color = selectedLabelColor;
+      }
     }
-})
+  }
+}
 
-inputPortfolio.addEventListener('click', function () {
-    for (let i = 0; labelPortfolio.length; i++) {
-        if (inputPortfolio.checked) {
-            homePage.classList.remove('selecionado')
-            portfolioPage.classList.add('selecionado')
-            managePage.classList.remove('selecionado')
-            bookmarkPage.classList.remove('selecionado')
-            insurePage.classList.remove('selecionado')
-            fyloPage.classList.remove('selecionado')
-            contactPage.classList.remove('selecionado')
-            labelHome[i].style.color = 'var(--grayishDarkBlue)'
-            labelPortfolio[i].style.color = 'var(--slightlyDesaturatedCyan)'
-            labelContact[i].style.color = 'var(--grayishDarkBlue)'
-        } else if (inputContact.checked === false) {
-            contactPage.classList.remove('selecionado')
-        }
+function handleInputClick(input, selectedPage, selectedLabelColor) {
+  input.addEventListener('click', function () {
+    if (input.checked) {
+      updatePages(selectedPage, selectedLabelColor);
     }
-})
+  });
+}
 
-
-//Form Footer
-
-footerHome.addEventListener('click', function () {
-    if (footerHome.checked) {
-        homePage.classList.add('selecionado')
-        portfolioPage.classList.remove('selecionado')
-        managePage.classList.remove('selecionado')
-        bookmarkPage.classList.remove('selecionado')
-        insurePage.classList.remove('selecionado')
-        fyloPage.classList.remove('selecionado')
-        contactPage.classList.remove('selecionado')
-        for (let i = 0; i < labelHome.length; i++) {
-            labelHome[i].style.color = 'var(--slightlyDesaturatedCyan)'
-            labelPortfolio[i].style.color = 'var(--grayishDarkBlue)'
-            labelContact[i].style.color = 'var(--grayishDarkBlue)'
-        }
-    } else if (footerHome.checked === false) {
-        homePage.classList.remove('selecionado')
+function handleFooterButtonClick(footerButton, selectedPage, selectedLabelColor) {
+  footerButton.addEventListener('click', function () {
+    if (footerButton.checked) {
+      updatePages(selectedPage, selectedLabelColor);
     }
-})
+  });
+}
 
-footerContact.addEventListener('click', function () {
-    if (footerContact.checked) {
-        homePage.classList.remove('selecionado')
-        portfolioPage.classList.remove('selecionado')
-        managePage.classList.remove('selecionado')
-        bookmarkPage.classList.remove('selecionado')
-        insurePage.classList.remove('selecionado')
-        fyloPage.classList.remove('selecionado')
-        contactPage.classList.add('selecionado')
-        for (let i = 0; i < labelContact.length; i++) {
-            labelHome[i].style.color = 'var(--grayishDarkBlue)'
-            labelPortfolio[i].style.color = 'var(--grayishDarkBlue)'
-            labelContact[i].style.color = 'var(--slightlyDesaturatedCyan)'
-        }
-    } else if (footerContact.checked === false) {
-        contactPage.classList.remove('selecionado')
-    }
-})
+function handleButton(button, selectedPage, selectedLabelColor) {
+  button.addEventListener('click', function () {
+    updatePages(selectedPage, selectedLabelColor);
+  });
+}
 
-footerPortfolio.addEventListener('click', function () {
-    if (footerPortfolio.checked) {
-        homePage.classList.remove('selecionado')
-        portfolioPage.classList.add('selecionado')
-        managePage.classList.remove('selecionado')
-        bookmarkPage.classList.remove('selecionado')
-        insurePage.classList.remove('selecionado')
-        fyloPage.classList.remove('selecionado')
-        contactPage.classList.remove('selecionado')
-        for (let i = 0; i < labelPortfolio.length; i++) {
-            labelHome[i].style.color = 'var(--grayishDarkBlue)'
-            labelPortfolio[i].style.color = 'var(--slightlyDesaturatedCyan)'
-            labelContact[i].style.color = 'var(--grayishDarkBlue)'
-        }
-    } else if (footerContact.checked === false) {
-        contactPage.classList.remove('selecionado')
-    }
-})
+// Handle inputs
+handleInputClick(inputs.home, pages.home, 'var(--slightlyDesaturatedCyan)');
+handleInputClick(inputs.portfolio, pages.portfolio, 'var(--slightlyDesaturatedCyan)');
+handleInputClick(inputs.contact, pages.contact, 'var(--slightlyDesaturatedCyan)');
 
+// Handle footer buttons
+handleFooterButtonClick(footerButtons.home, pages.home, 'var(--slightlyDesaturatedCyan)');
+handleFooterButtonClick(footerButtons.portfolio, pages.portfolio, 'var(--slightlyDesaturatedCyan)');
+handleFooterButtonClick(footerButtons.contact, pages.contact, 'var(--slightlyDesaturatedCyan)');
 
-// Button Porfolio e Contact
-
-btnPortfolio.addEventListener('click', function () {
-    for (let i = 0; i < labelPortfolio.length; i ++) {
-        labelHome[i].style.color = 'var(--grayishDarkBlue)'
-        labelPortfolio[i].style.color = 'var(--slightlyDesaturatedCyan)'
-        labelContact[i].style.color = 'var(--grayishDarkBlue)'
-    }
-    homePage.classList.remove('selecionado')
-    portfolioPage.classList.add('selecionado')
-})
-
-btnContact.forEach(contact => {
-    contact.addEventListener('click', function () {
-        homePage.classList.remove('selecionado')
-        portfolioPage.classList.remove('selecionado')
-        managePage.classList.remove('selecionado')
-        bookmarkPage.classList.remove('selecionado')
-        insurePage.classList.remove('selecionado')
-        fyloPage.classList.remove('selecionado')
-        contactPage.classList.add('selecionado')
-        for (let i = 0; i < labelPortfolio.length; i ++) {
-            labelHome[i].style.color = 'var(--grayishDarkBlue)'
-            labelPortfolio[i].style.color = 'var(--grayishDarkBlue)'
-            labelContact[i].style.color = 'var(--slightlyDesaturatedCyan)'
-        }
-    })
+// Handle buttons
+handleButton(buttons.portfolio, pages.portfolio, 'var(--slightlyDesaturatedCyan)');
+buttons.contact.forEach((contactButton) => {
+  handleButton(contactButton, pages.contact, 'var(--slightlyDesaturatedCyan)');
 });
+handleButton(buttons.manage, pages.manage, 'var(--slightlyDesaturatedCyan)');
+handleButton(buttons.bookmark, pages.bookmark, 'var(--slightlyDesaturatedCyan)');
+handleButton(buttons.insure, pages.insure, 'var(--slightlyDesaturatedCyan)');
+handleButton(buttons.fylo, pages.fylo, 'var(--slightlyDesaturatedCyan)');
 
-// View Project
+// Handle btnLeft and btnRight
+for (let i = 0; i < btnLeft.length; i++) {
+  btnLeft[i].addEventListener('click', function () {
+    updatePages(pages.fylo, 'var(--slightlyDesaturatedCyan)');
+  });
 
-btnManage.addEventListener('click', function () {
-    homePage.classList.remove('selecionado')
-    portfolioPage.classList.remove('selecionado')
-    managePage.classList.add('selecionado')
-    bookmarkPage.classList.remove('selecionado')
-    insurePage.classList.remove('selecionado')
-    fyloPage.classList.remove('selecionado')
-    contactPage.classList.remove('selecionado')
-})
-
-btnBookmark.addEventListener('click', function () {
-    homePage.classList.remove('selecionado')
-    portfolioPage.classList.remove('selecionado')
-    managePage.classList.remove('selecionado')
-    bookmarkPage.classList.add('selecionado')
-    insurePage.classList.remove('selecionado')
-    fyloPage.classList.remove('selecionado')
-    contactPage.classList.remove('selecionado')
-})
-
-btnInsure.addEventListener('click', function () {
-    homePage.classList.remove('selecionado')
-    portfolioPage.classList.remove('selecionado')
-    managePage.classList.remove('selecionado')
-    bookmarkPage.classList.remove('selecionado')
-    insurePage.classList.add('selecionado')
-    fyloPage.classList.remove('selecionado')
-    contactPage.classList.remove('selecionado')
-})
-
-btnFylo.addEventListener('click', function () {
-    homePage.classList.remove('selecionado')
-    portfolioPage.classList.remove('selecionado')
-    managePage.classList.remove('selecionado')
-    bookmarkPage.classList.remove('selecionado')
-    insurePage.classList.remove('selecionado')
-    fyloPage.classList.add('selecionado')
-    contactPage.classList.remove('selecionado')
-})
-
-
-// Sliders - Btn Left
-
-btnLeft[0].addEventListener('click', function () {
-    homePage.classList.remove('selecionado')
-    portfolioPage.classList.remove('selecionado')
-    managePage.classList.remove('selecionado')
-    bookmarkPage.classList.remove('selecionado')
-    insurePage.classList.remove('selecionado')
-    fyloPage.classList.add('selecionado')
-    contactPage.classList.remove('selecionado')
-})
-
-btnLeft[1].addEventListener('click', function () {
-    homePage.classList.remove('selecionado')
-    portfolioPage.classList.remove('selecionado')
-    managePage.classList.add('selecionado')
-    bookmarkPage.classList.remove('selecionado')
-    insurePage.classList.remove('selecionado')
-    fyloPage.classList.remove('selecionado')
-    contactPage.classList.remove('selecionado')
-})
-
-btnLeft[2].addEventListener('click', function () {
-    homePage.classList.remove('selecionado')
-    portfolioPage.classList.remove('selecionado')
-    managePage.classList.remove('selecionado')
-    bookmarkPage.classList.add('selecionado')
-    insurePage.classList.remove('selecionado')
-    fyloPage.classList.remove('selecionado')
-    contactPage.classList.remove('selecionado')
-})
-
-btnLeft[3].addEventListener('click', function () {
-    homePage.classList.remove('selecionado')
-    portfolioPage.classList.remove('selecionado')
-    managePage.classList.remove('selecionado')
-    bookmarkPage.classList.remove('selecionado')
-    insurePage.classList.add('selecionado')
-    fyloPage.classList.remove('selecionado')
-    contactPage.classList.remove('selecionado')
-})
-
-// Sliders - Btn Right
-
-btnRight[0].addEventListener('click', function () {
-    homePage.classList.remove('selecionado')
-    portfolioPage.classList.remove('selecionado')
-    managePage.classList.remove('selecionado')
-    bookmarkPage.classList.add('selecionado')
-    insurePage.classList.remove('selecionado')
-    fyloPage.classList.remove('selecionado')
-    contactPage.classList.remove('selecionado')
-})
-
-btnRight[1].addEventListener('click', function () {
-    homePage.classList.remove('selecionado')
-    portfolioPage.classList.remove('selecionado')
-    managePage.classList.remove('selecionado')
-    bookmarkPage.classList.remove('selecionado')
-    insurePage.classList.add('selecionado')
-    fyloPage.classList.remove('selecionado')
-    contactPage.classList.remove('selecionado')
-})
-
-btnRight[2].addEventListener('click', function () {
-    homePage.classList.remove('selecionado')
-    portfolioPage.classList.remove('selecionado')
-    managePage.classList.remove('selecionado')
-    bookmarkPage.classList.remove('selecionado')
-    insurePage.classList.remove('selecionado')
-    fyloPage.classList.add('selecionado')
-    contactPage.classList.remove('selecionado')
-})
-
-btnRight[3].addEventListener('click', function () {
-    homePage.classList.remove('selecionado')
-    portfolioPage.classList.remove('selecionado')
-    managePage.classList.add('selecionado')
-    bookmarkPage.classList.remove('selecionado')
-    insurePage.classList.remove('selecionado')
-    fyloPage.classList.remove('selecionado')
-    contactPage.classList.remove('selecionado')
-})
+  btnRight[i].addEventListener('click', function () {
+    updatePages(pages.fylo, 'var(--slightlyDesaturatedCyan)');
+  });
+}
 
 const error = document.querySelectorAll('.error')
 const inputEmail = document.querySelector('#email')
